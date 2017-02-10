@@ -1,7 +1,7 @@
 
 function homePageLoading() {
     url = 'apiUrl';
-    elementID = 'index.html';
+    elementID = '../../bitcoin/index.html';
     fonctionRequeteApi(url, elementID);
 
   var xmlhttp = new XMLHttpRequest();
