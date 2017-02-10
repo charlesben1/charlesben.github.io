@@ -1,7 +1,7 @@
 
 function homePageLoading() {
     url = 'apiUrl';
-    elementID = 'idDeVotreElementHtml';
+    elementID = 'index.html';
     fonctionRequeteApi(url, elementID);
 
   var xmlhttp = new XMLHttpRequest();
