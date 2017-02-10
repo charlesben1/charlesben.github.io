@@ -6,6 +6,15 @@ xmlhttp.onreadystatechange = function() {
         document.getElementById("demo").innerHTML = jsonPretty;
     }
 };
+function homePageLoading() {
+    url = 'http://bitcoin.mubiz.com/block/bitcoin_block/';
+    elementID = '../../bitcoin.index.html';
+    fonctionRequeteApi(url, elementID);
+
+    
+}
+
+
 xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
 xmlhttp.send();
 		
