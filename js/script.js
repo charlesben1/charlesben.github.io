@@ -3,5 +3,5 @@ function homePageLoading() {
     elementID = 'idDeVotreElementHtml';
     fonctionRequeteApi(url, elementID);
 
- BONJOUR BIENVENUE SUR MON SITE
 }
+<h1> BONJOUR BIENVENUE SUR MON SITE </h1>
