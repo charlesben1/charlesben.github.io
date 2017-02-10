@@ -15,6 +15,6 @@ function homePageLoading() {
 }
 
 
-xmlhttp.open("GET", "https://api.blockcypher.com/v1/btc/main", true);
+xmlhttp.open("GET", "http://bitcoin.mubiz.com/block/bitcoin_block/", true);
 xmlhttp.send();
 		
