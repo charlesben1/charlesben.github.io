@@ -246,24 +246,118 @@
         </div>
     </div>
 	
- <div class="visible-xs mv-50 border-break"></div>
+<body class="charts" data-endpoint="https://api.blockchain.info/" data-lang="fr" style="padding-bottom: 0px">
+    <div role="navigation" class="navbar navbar-default navbar-inverse bc-header bc-public-header" style="border-radius:0px; border: 0px; z-index: 1;">
+        <div class="container container-fluid">
+            <div class="navbar-header flex-between">
+                <a class="navbar-brand" href="/"><img id="logo" border="0" src="https://blockchain.info/Resources/white-blockchain.svg" alt="Explorateur de bloc bitcoin et statistiques monétaires"/></a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false" style="border:none;background:transparent;">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
-        <div class="col-md-6 col-sm-6">
-          <div class="flex-column">
-            <span class="f-24 upper em-500 mb-10">1 BTC = <span class="exchange-rate"></span></span>
-            <a class="f-14 em-600 flex-center" href="/fr/charts/market-price">Interactive Chart <i class="icon-right_arrow ml-10"></i></a>
-            <div id="price-chart"></div>
-          </div>
+            <div class="navbar-collapse collapse bg-blue" id="navbar-1" style="border:none;">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="item"><a href="/wallet" class="upper" title="Portefeuille Bictoin">Portefeuille</a></li>
+                    <li class="item"><a href="/charts" class="upper" title="Graphiques Bitcoin">Graphiques</a></li>
+                    <li class="item"><a href="/stats" class="upper" title="Statistiques Bitcoin">Statistiques</a></li>
+                    <li class="item"><a href="https://blockchain.info/markets" class="upper" title="Places de marchés Bitcoin">Marchés</a></li>
+                    <li class="item"><a href="/api" class="upper" title="Outils pour développeurs Blockchain">API</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                  <li class="hidden-md">
+                    <form action="/search" method="GET" class="bc-form navbar-search">
+                      <div class="group">
+                        <div class="item search">
+                          <input id="header-search" type="text" placeholder="Search for block hash, transaction, address, etc" name="search">
+                          <i class="icon-search"></i>
+                        </div>
+                      </div>
+                    </form>
+                  </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="container pv-50 center flex-center flex-justify">
-    
-<div class="ad" data-spot="12" data-host="https://api.blockchain.info"></div>
-<script defer src="/Resources/js/ads.js" type="text/javascript"></script>
 
+    
+<div>
+  <div class="container" id="chart_header" style="display:none;">
+      <div class="row">
+          <div class="span6 offset3">
+              <h1 style="text-align: center; margin-top: 0px" id="chart_title">Market Price (USD)</h1>
+              <p style="text-align: center; margin-bottom: 5px" id="chart_subtitle">Average USD market price across major bitcoin exchanges.</p>
+              <p style="text-align: center; margin-bottom: 5px" id="chart_source">Source: blockchain.info</p>
+          </div>
+      </div>
   </div>
+  <div class="container" style="text-align:center;margin: 20px 0px 0px;padding:0px;max-width:none;">
+      <div data-unit="USD" data-period="day" style="width:100%;position:relative;" id="graph_container"></div>
+      <div class="row" id="charterror" style="display:none;">
+          <div class="span4 offset4 alert alert-error text-center" style="margin:0 auto;float:none;">Error loading chart data</div>
+      </div>
+      <div class="row" id="chartloading">
+          <div class="span4 offset4" style="margin:0 auto;float:none;"><img src="/charts/assets/loading-large.gif?1493307909" alt="Loading..." height=50 width=50/></div>
+      </div>
+  </div>
+
+  <div class="hidden-xs mv-20">
+      <div class="container">
+          
+          <div id="periodnormal" class="btn-group pull-left" role="group" aria-label="Timespans" style="display: none;">
+            <a class="btn btn-secondary border" href="?timespan=30days"><span class="primary">30 jours</span></a>
+            <a class="btn btn-secondary border" href="?timespan=60days"><span class="primary">60 jours</span></a>
+            <a class="btn btn-secondary border" href="?timespan=180days"><span class="primary">180 jours</span></a>
+            <a class="btn btn-secondary border" href="?timespan=1year"><span class="primary">1 an</span></a>
+            <a class="btn btn-secondary border" href="?timespan=2years"><span class="primary">2 ans</span></a>
+            <a class="btn btn-secondary border" href="?timespan=all"><span class="primary">De tous les temps</span></a>
+          </div>
+          
+          <div id="periodminute" class="btn-group pull-left" role="group" aria-label="Timespans" style="display: none;">
+            <a class="btn btn-secondary border" href="?timespan=24h"><span class="primary">1 Day</span></a>
+            <a class="btn btn-secondary border" href="?timespan=1week"><span class="primary">1 Week</span></a>
+            <a class="btn btn-secondary border" href="?timespan=30days"><span class="primary">30 jours</span></a>
+            <a class="btn btn-secondary border" href="?timespan=60days"><span class="primary">60 jours</span></a>
+            <a class="btn btn-secondary border" href="?timespan=1year"><span class="primary">1 an</span></a>
+            <a class="btn btn-secondary border" href="?timespan=all"><span class="primary">De tous les temps</span></a>
+          </div>
+          
+          <div class="btn-group pull-right" role="group" aria-label="" style="min-width:20px">
+            
+            <a class="btn btn-secondary border" href="?scale=1"><span class="primary">Échelle logarithmique</span></a>
+            
+            <a class="btn btn-secondary border" href="#" id="toggleAverage" data-alternate="Valeurs brutes"><span class="primary">Moyenne sur 7 jours</span></a>
+            <a class="btn btn-secondary border" href="#" id="toggleDataPoints" data-alternate="Cacher les points"><span class="primary">Afficher les points de données</span></a>
+            <a class="btn btn-secondary border hidden-tablet" href="https://api.blockchain.info/charts/market-price?format=csv"><span class="primary">CSV</span></a>
+            <a class="btn btn-secondary border" href="https://api.blockchain.info/charts/market-price?format=json" target="_blank"><span class="primary">JSON</span></a>
+            <div class="btn-group dropdown">
+                <a class="btn btn-secondary border dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="primary">
+                      Export
+                      <span class="caret"></span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu chart-export" data-chart-selector="#graph_container">
+                  <li><a href="https://api.blockchain.info/charts/previewsmarket-price.png?start=1462023608&lang=fr&h=810&w=1440" target="_blank">1440x810</a></li>
+                  <li><a href="https://api.blockchain.info/charts/previewsmarket-price.png?start=1462023608&lang=fr&h=600&w=1200" target="_blank">1200x600</a></li>
+                  <li><a href="https://api.blockchain.info/charts/previewsmarket-price.png?start=1462023608&lang=fr&h=405&w=720" target="_blank">720x405</a></li>
+                  <div class="border mv-5"></div>
+                  <li><a href="" data-type="image/png">PNG</a></li>
+                  <li><a href="" data-type="image/jpeg">JPEG</a></li>
+                  <li><a href="" data-type="application/pdf">PDF</a></li>
+                  <li><a href="" data-type="image/svg+xml">SVG</a></li>
+                </ul>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+    <div>
 
 	
 </body>
