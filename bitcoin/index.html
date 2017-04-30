@@ -94,46 +94,103 @@
 	
 	</li a>
 	<li> <script type="text/javascript">homePageLoading();</script> </li>
-<div class="container container-fake">
-  <h2 class="f-28 upper center mt-70 mb-35 hidden-xs hidden-sm">Stats populaires</h2>
+<div class="flex-row flex-center flex-between upper em-500 mt-20 mb-15">
+      <span class="f-24">Les derniers blocs</span>
+      <a class="f-16" href="/fr/blocks"><b class="flex-center mr-5">Plus... <i class="icon-right_arrow ml-10"></i></b></a>
+    </div>
+    <div class="row-fluid row">
+        <div class="col-md-12">
+            <table class="table table-striped" id="blocks">
+                <tr>
+                    <th>Hauteur</th>
+                    <th>Âge</th>
+                    <th class="hidden-xs">Transactions</th>
+                    <th class="hidden-xs">Total envoyé</th>
+                    <th class="hidden-xs">Relayé par</th>
+                    <th>Taille (kB)</th>
+                </tr>
 
-  <div class="row">
-    <div class="col-md-3 center flex-column popular">
-      <span class="mt-10 blue f-20">Le prix de marché (USD)</span>
-      <a href="/fr/charts/market-price" class="flex-column center mv-50">
-        <span class="f-48">$<span id="market-price"></span></span>
-        <span>USD</span>
-      </a>
-      <span class="f-14">Prix moyen du marché en USD dans les principales bourses d’échange de bitcoins.</span>
+                
+                
+                    <tr id="bi-1494675">
+                        <td><a href="/fr/block/000000000000000000de15cacd6c54301d8f707d288f9f72db14268cf81f121a">464199</a>
+                        </td>
+                        <td data-time="1493558942"> < 1 minute</td>
+                        <td class="hidden-xs">1158</td>
+                        <td class="hidden-xs"><span data-c="554789661352">5,547.90 BTC</span>
+                        </td>
+                        <td class="hidden-xs">
+                            
+                                
+                                    <a href="/fr/blocks/F2Pool">F2Pool</a>
+                                
+                                
+                            
+
+                        </td>
+                        <td>513.66</td>
+                    </tr>
+                
+                    <tr id="bi-1492881">
+                        <td><a href="/fr/block/0000000000000000007bc1281ba31f5ffa703ec8ae5288302ac0d7762bd0c70c">464198</a>
+                        </td>
+                        <td data-time="1493558568">7 minutes</td>
+                        <td class="hidden-xs">2014</td>
+                        <td class="hidden-xs"><span data-c="754411699484">7,544.12 BTC</span>
+                        </td>
+                        <td class="hidden-xs">
+                            
+                                
+                                    <a href="/fr/blocks/BTC.TOP">BTC.TOP</a>
+                                
+                                
+                            
+
+                        </td>
+                        <td>999.17</td>
+                    </tr>
+                
+                    <tr id="bi-1494674">
+                        <td><a href="/fr/block/000000000000000001946fc4e6d4d8b35479a4781610e04e2d82faba34328b79">464197</a>
+                        </td>
+                        <td data-time="1493558026">16 minutes</td>
+                        <td class="hidden-xs">1477</td>
+                        <td class="hidden-xs"><span data-c="471976374994">4,719.76 BTC</span>
+                        </td>
+                        <td class="hidden-xs">
+                            
+                                
+                                    <a href="/fr/blocks/AntPool">AntPool</a>
+                                
+                                
+                            
+
+                        </td>
+                        <td>998.07</td>
+                    </tr>
+                
+                    <tr id="bi-1494673">
+                        <td><a href="/fr/block/000000000000000000b38e8fb3bf7a34d40ff711af902605ecd0055a46f9f476">464196</a>
+                        </td>
+                        <td data-time="1493557890">18 minutes</td>
+                        <td class="hidden-xs">1810</td>
+                        <td class="hidden-xs"><span data-c="2201493152971">22,014.93 BTC</span>
+                        </td>
+                        <td class="hidden-xs">
+                            
+                                
+                                    <a href="/fr/blocks/BTCC Pool">BTCC Pool</a>
+                                
+                                
+                            
+
+                        </td>
+                        <td>998.03</td>
+                    </tr>
+                
+            </table>
+        </div>
     </div>
-    <div class="col-md-3 center flex-column popular">
-      <span class="mt-10 blue f-20">Taille moyenne du bloc</span>
-      <a href="/fr/charts/avg-block-size" class="flex-column center mv-50">
-        <span class="f-48" id="block-size"></span>
-        <span>Megabytes</span>
-      </a>
-      <span class="f-14">La taille de bloc moyenne 24 heures dans MB.</span>
-    </div>
-    <div class="col-md-3 center flex-column popular">
-      <!-- Needs Translation --><span class="mt-10 blue f-20">Transactions per Day</span><!-- Needs Translation -->
-      <a href="/fr/charts/n-transactions" class="flex-column center mv-50">
-        <span class="f-48" id="tx-per-day"></span>
-        <span>Transactions</span>
-      </a>
-      <span class="f-14">Le nombre total de transactions Bitcoin confirmés au cours des dernières 24 heures.</span>
-    </div>
-      <div class="col-md-3 center flex-column popular">
-      <span class="mt-10 blue f-20">MemPool Taille</span>
-      <a href="/fr/charts/mempool-size" class="flex-column center mv-50">
-        <span class="f-48" id="mempool-size"></span>
-        <span>Bytes</span>
-      </a>
-      <span class="f-14">La taille totale des transactions en attente à confirmer.</span>
-    </div>
-  </div>
-  <div class="center mv-40">
-  </div>
-</div>
 	
 
 	
