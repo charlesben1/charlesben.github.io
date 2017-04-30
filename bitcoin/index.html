@@ -11,14 +11,20 @@
 	  <link rel="stylesheet" href="../css/style.css"/>
 	
 	    
+	  <script>
+  (function(b,i,t,C,O,I,N) {
+    window.addEventListener('load',function() {
+      if(b.getElementById(C))return;
+      I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+      I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+    },false)
+  })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+</script>
+	  
+	  
 	</head>
 <body>
- <div id="coindesk-widget" data-size="mpu" data-align="center"></div>
-<script type="text/javascript" src="//widget.coindesk.com/bpiticker/coindesk-widget.min.js"></script>
-	<ul>
-  <li><a class="active" href="../index.html">Home</a></li>
-  <li><a href="index.html">Bitcoin</a></li> 
-       </ul>
+ <div class="btcwdgt-price" bw-theme="light" bw-cur="eur"></div>
 	 <h1>Blockchain Majeure IF</h1>
 	
 	 <div class="flex-row flex-center flex-between upper em-500 mt-20 mb-15">
