@@ -31,7 +31,46 @@
 	
 	</li a>
 	<li> <script type="text/javascript">homePageLoading();</script> </li>
+<div class="container container-fake">
+  <h2 class="f-28 upper center mt-70 mb-35 hidden-xs hidden-sm">Stats populaires</h2>
 
+  <div class="row">
+    <div class="col-md-3 center flex-column popular">
+      <span class="mt-10 blue f-20">Le prix de marché (USD)</span>
+      <a href="/fr/charts/market-price" class="flex-column center mv-50">
+        <span class="f-48">$<span id="market-price"></span></span>
+        <span>USD</span>
+      </a>
+      <span class="f-14">Prix moyen du marché en USD dans les principales bourses d’échange de bitcoins.</span>
+    </div>
+    <div class="col-md-3 center flex-column popular">
+      <span class="mt-10 blue f-20">Taille moyenne du bloc</span>
+      <a href="/fr/charts/avg-block-size" class="flex-column center mv-50">
+        <span class="f-48" id="block-size"></span>
+        <span>Megabytes</span>
+      </a>
+      <span class="f-14">La taille de bloc moyenne 24 heures dans MB.</span>
+    </div>
+    <div class="col-md-3 center flex-column popular">
+      <!-- Needs Translation --><span class="mt-10 blue f-20">Transactions per Day</span><!-- Needs Translation -->
+      <a href="/fr/charts/n-transactions" class="flex-column center mv-50">
+        <span class="f-48" id="tx-per-day"></span>
+        <span>Transactions</span>
+      </a>
+      <span class="f-14">Le nombre total de transactions Bitcoin confirmés au cours des dernières 24 heures.</span>
+    </div>
+      <div class="col-md-3 center flex-column popular">
+      <span class="mt-10 blue f-20">MemPool Taille</span>
+      <a href="/fr/charts/mempool-size" class="flex-column center mv-50">
+        <span class="f-48" id="mempool-size"></span>
+        <span>Bytes</span>
+      </a>
+      <span class="f-14">La taille totale des transactions en attente à confirmer.</span>
+    </div>
+  </div>
+  <div class="center mv-40">
+  </div>
+</div>
 	
 
 	
