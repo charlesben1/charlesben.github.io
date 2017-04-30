@@ -115,6 +115,177 @@
             </table>
         </div>
     </div>
+	<body class="chart-page on-widget " id="widget-container">
+<div class="loading-indicator" id="loading-indicator"></div>
+<script type="text/javascript" src="https://s.tradingview.com/static/js/external/spin.min.js"></script>
+<script type="text/javascript">
+var loadingSpinner = new Spinner({
+	lines: 17, length: 0, width: 3, radius: 30, scale: 1, corners: 1,
+	color: '#00A2E2', opacity: 0, rotate: 0, direction: 1, speed: 1.5,
+	trail: 60, fps: 20, zIndex: 2e9, className: 'spinner', top: '50%',
+	left: '50%', shadow: false, hwaccel: false
+}).spin(document.getElementById('loading-indicator'));
+</script>
+
+<script type="text/javascript">
+	var urlParams = (function () {
+		var match,
+			pl     = /\+/g,  // Regex for replacing addition symbol with a space
+			search = /([^&=]+)=?([^&]*)/g,
+			decode = function (s) { return decodeURIComponent(s.replace(pl, ' ')).replace(/<\/?[^>]+(>|$)/g, ''); },
+			query  = window.location.search.substring(1),
+			result = {};
+
+		while (match = search.exec(query)) {
+			result[decode(match[1])] = decode(match[2]);
+		}
+		return result;
+	})();
+
+	var defFeatureset = 'widget';
+
+	__initialEnabledFeaturesets = !!urlParams.enabled_features ? [defFeatureset].concat(JSON.parse(urlParams.enabled_features)) : [defFeatureset];
+
+	__initialDisabledFeaturesets = !!urlParams.disabled_features ? JSON.parse(urlParams.disabled_features) : [];
+
+	__initialMetainfoOverrides = urlParams.studies_overrides ? JSON.parse(urlParams.studies_overrides) : {};
+
+	__defaultsOverrides = !!urlParams.overrides ? JSON.parse(urlParams.overrides) : {};
+</script>
+
+<script crossorigin="anonymous"  type="text/javascript" src="https://s.tradingview.com/static/bundles/vendors.e39233397fe997dd09aa.73b1c20a8565.js" ></script>
+<link type="text/css" href="https://s.tradingview.com/static/bundles/vendors.4d073557b52d805561e631f4420fc97f.4d073557b52d.css" rel="stylesheet"/>
+
+<script type="text/javascript">
+	var urlParams = (function () {
+		var match,
+			pl = /\+/g,
+			search = /([^&=]+)=?([^&]*)/g,
+			decode = function (s) { return decodeURIComponent(s.replace(pl, ' ')).replace(/<\/?[^>]+(>|$)/g, ''); },
+			query = window.location.search.substring(1),
+			result = {};
+
+		while (match = search.exec(query)) {
+			result[decode(match[1])] = decode(match[2]);
+		}
+		return result;
+	})();
+
+	(function () {
+		var _siteLocales = {"ru":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/ru.6419b7533f84.js","geoip_code":"ru","language":"ru","name_on_widgets":"\u0420\u0443\u0441\u0441\u043a\u0438\u0439","title":"\u0420\u043e\u0441\u0441\u0438\u044f","show_on_widgets":true,"base_url":"https:\/\/ru.tradingview.com","current_url":"https:\/\/ru.tradingview.com\/widgetembed\/","hreflang":"ru-ru","priority":700,"flag":"ru","language_name":"\u0420\u043e\u0441\u0441\u0438\u044f","is_site_locale":true},"fr":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/fr.a11ccdd8880f.js","geoip_code":"fr","language":"fr","name_on_widgets":"French","title":"France","show_on_widgets":true,"base_url":"https:\/\/fr.tradingview.com","current_url":"https:\/\/fr.tradingview.com\/widgetembed\/","hreflang":"fr-fr","priority":744,"flag":"fr","language_name":"France","is_site_locale":true},"en":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/en.31b7f4942e94.js","geoip_code":"us","language":"en","name_on_widgets":"English","title":"United States","show_on_widgets":true,"base_url":"https:\/\/www.tradingview.com","current_url":"https:\/\/www.tradingview.com\/widgetembed\/","hreflang":"en","priority":1000,"flag":"us","language_name":"United States","is_site_locale":true},"br":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/pt.97203333548c.js","geoip_code":"br","language":"pt","name_on_widgets":"Portugu\u00eas","title":"Brasil","show_on_widgets":true,"base_url":"https:\/\/br.tradingview.com","current_url":"https:\/\/br.tradingview.com\/widgetembed\/","hreflang":"pt-br","priority":713,"flag":"br","language_name":"Brasil","is_site_locale":true},"ca":{"disabled":true,"geoip_code":"ca","language":"en","localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/en.31b7f4942e94.js","title":"Canada","base_url":"https:\/\/ca.tradingview.com","current_url":"https:\/\/ca.tradingview.com\/widgetembed\/","hreflang":"en-ca","priority":775,"flag":"ca","is_site_locale":true,"language_name":"Canada"},"tr":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/tr.eac1367a570c.js","geoip_code":"tr","language":"tr","name_on_widgets":"T\u00fcrk\u00e7e","title":"T\u00fcrkiye","show_on_widgets":true,"base_url":"https:\/\/tr.tradingview.com","current_url":"https:\/\/tr.tradingview.com\/widgetembed\/","hreflang":"tr-tr","priority":650,"flag":"tr","language_name":"T\u00fcrkiye","is_site_locale":true},"it":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/it.8bbdb22b2623.js","geoip_code":"it","language":"it","name_on_widgets":"Italiano","title":"Italia","show_on_widgets":true,"base_url":"https:\/\/it.tradingview.com","current_url":"https:\/\/it.tradingview.com\/widgetembed\/","hreflang":"it-it","priority":737,"flag":"it","language_name":"Italia","is_site_locale":true},"kr":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/ko.a6e09be71d6d.js","geoip_code":"kr","language":"ko","name_on_widgets":"\ud55c\uad6d\uc5b4","title":"\ud55c\uad6d","show_on_widgets":true,"base_url":"https:\/\/kr.tradingview.com","current_url":"https:\/\/kr.tradingview.com\/widgetembed\/","hreflang":"ko-kr","priority":550,"flag":"kr","language_name":"\ud55c\uad6d","is_site_locale":true},"au":{"disabled":true,"geoip_code":"au","language":"en","localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/en.31b7f4942e94.js","title":"Australia","base_url":"https:\/\/au.tradingview.com","current_url":"https:\/\/au.tradingview.com\/widgetembed\/","hreflang":"en-au","priority":763,"flag":"au","is_site_locale":true,"language_name":"Australia"},"pl":{"disabled":true,"geoip_code":"pl","language":"pl","name_on_widgets":"Polski","localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/pl.cfa07ac75208.js","title":"Polska","show_on_widgets":true,"base_url":"https:\/\/pl.tradingview.com","current_url":"https:\/\/pl.tradingview.com\/widgetembed\/","hreflang":"pl-pl","priority":725,"flag":"pl","language_name":"Polska","is_site_locale":true},"uk":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/en.31b7f4942e94.js","geoip_code":"gb","language":"en","title":"United Kingdom","base_url":"https:\/\/uk.tradingview.com","current_url":"https:\/\/uk.tradingview.com\/widgetembed\/","hreflang":"en-gb","priority":900,"flag":"gb","is_site_locale":true,"language_name":"United Kingdom"},"in":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/en.31b7f4942e94.js","geoip_code":"in","language":"en","title":"India","base_url":"https:\/\/in.tradingview.com","current_url":"https:\/\/in.tradingview.com\/widgetembed\/","hreflang":"en-in","priority":800,"flag":"in","is_site_locale":true,"language_name":"India"},"ja":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/ja.8a4d79219d6e.js","geoip_code":"jp","language":"ja","name_on_widgets":"\u65e5\u672c\u8a9e","title":"\u65e5\u672c","show_on_widgets":true,"base_url":"https:\/\/jp.tradingview.com","current_url":"https:\/\/jp.tradingview.com\/widgetembed\/","hreflang":"ja-jp","priority":600,"flag":"jp","language_name":"\u65e5\u672c","is_site_locale":true},"es":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/es.d1702fd09b7e.js","geoip_code":"es","name_on_widgets":"Espa\u00f1ol","language":"es","title":"Espa\u00f1a","countries_with_this_language":["mx","ar","ve","cl","co","pe","uy","py","cr","gt","cu","bo","pa","pr"],"show_on_widgets":true,"base_url":"https:\/\/es.tradingview.com","current_url":"https:\/\/es.tradingview.com\/widgetembed\/","hreflang":"es-es","priority":750,"flag":"es","language_name":"Espa\u00f1a","is_site_locale":true}};
+		var _widgetLocales = {"ru":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/ru.6419b7533f84.js","geoip_code":"ru","language":"ru","name_on_widgets":"\u0420\u0443\u0441\u0441\u043a\u0438\u0439","title":"\u0420\u043e\u0441\u0441\u0438\u044f","show_on_widgets":true,"base_url":"https:\/\/ru.tradingview.com","current_url":"https:\/\/ru.tradingview.com\/widgetembed\/","hreflang":"ru-ru","priority":700,"flag":"ru","language_name":"\u0420\u043e\u0441\u0441\u0438\u044f","is_site_locale":true},"fr":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/fr.a11ccdd8880f.js","geoip_code":"fr","language":"fr","name_on_widgets":"French","title":"France","show_on_widgets":true,"base_url":"https:\/\/fr.tradingview.com","current_url":"https:\/\/fr.tradingview.com\/widgetembed\/","hreflang":"fr-fr","priority":744,"flag":"fr","language_name":"France","is_site_locale":true},"en":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/en.31b7f4942e94.js","geoip_code":"us","language":"en","name_on_widgets":"English","title":"United States","show_on_widgets":true,"base_url":"https:\/\/www.tradingview.com","current_url":"https:\/\/www.tradingview.com\/widgetembed\/","hreflang":"en","priority":1000,"flag":"us","language_name":"United States","is_site_locale":true},"zh":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/zh.130e58fac2b9.js","geoip_code":"zh","name_on_widgets":"\u7b80\u4f53\u4e2d\u6587","language":"zh","show_on_widgets":true,"priority":537,"flag":"cn","language_name":"Chinese"},"th":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/th.414ec53c3c84.js","geoip_code":"th","name_on_widgets":"\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22","language":"th","show_on_widgets":true,"priority":525,"flag":"th","language_name":"Thai"},"kr":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/ko.a6e09be71d6d.js","geoip_code":"kr","language":"ko","name_on_widgets":"\ud55c\uad6d\uc5b4","title":"\ud55c\uad6d","show_on_widgets":true,"base_url":"https:\/\/kr.tradingview.com","current_url":"https:\/\/kr.tradingview.com\/widgetembed\/","hreflang":"ko-kr","priority":550,"flag":"kr","language_name":"\ud55c\uad6d","is_site_locale":true},"vi":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/vi.6bc5021a17b1.js","geoip_code":"vi","name_on_widgets":"Ti\u1ebfng Vi\u1ec7t","language":"vi","show_on_widgets":true,"priority":741,"flag":"vn","language_name":"Vietnamese"},"zh_TW":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/zh_TW.38de2afbfce7.js","geoip_code":"tw","name_on_widgets":"\u7e41\u9ad4\u4e2d\u6587","language":"zh_TW","show_on_widgets":true,"priority":536,"flag":"tw","language_name":"Chinese (Taiwan)"},"de":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/de.5d1108041413.js","geoip_code":"de","name_on_widgets":"Deutch","language":"de","show_on_widgets":true,"priority":756,"flag":"de","language_name":"German"},"tr":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/tr.eac1367a570c.js","geoip_code":"tr","language":"tr","name_on_widgets":"T\u00fcrk\u00e7e","title":"T\u00fcrkiye","show_on_widgets":true,"base_url":"https:\/\/tr.tradingview.com","current_url":"https:\/\/tr.tradingview.com\/widgetembed\/","hreflang":"tr-tr","priority":650,"flag":"tr","language_name":"T\u00fcrkiye","is_site_locale":true},"it":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/it.8bbdb22b2623.js","geoip_code":"it","language":"it","name_on_widgets":"Italiano","title":"Italia","show_on_widgets":true,"base_url":"https:\/\/it.tradingview.com","current_url":"https:\/\/it.tradingview.com\/widgetembed\/","hreflang":"it-it","priority":737,"flag":"it","language_name":"Italia","is_site_locale":true},"hu_HU":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/hu_HU.2b07ca501d07.js","geoip_code":"hu","name_on_widgets":"Magyar","language":"hu_HU","show_on_widgets":true,"priority":500,"flag":"mock","language_name":"Hungarian"},"fa":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/fa.4f5fb413b610.js","geoip_code":"fa","name_on_widgets":"\u0641\u0627\u0631\u0633\u06cc","language":"fa","show_on_widgets":true,"priority":721,"flag":"ir","language_name":"Persian"},"pl":{"disabled":true,"geoip_code":"pl","language":"pl","name_on_widgets":"Polski","localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/pl.cfa07ac75208.js","title":"Polska","show_on_widgets":true,"base_url":"https:\/\/pl.tradingview.com","current_url":"https:\/\/pl.tradingview.com\/widgetembed\/","hreflang":"pl-pl","priority":725,"flag":"pl","language_name":"Polska","is_site_locale":true},"br":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/pt.97203333548c.js","geoip_code":"br","language":"pt","name_on_widgets":"Portugu\u00eas","title":"Brasil","show_on_widgets":true,"base_url":"https:\/\/br.tradingview.com","current_url":"https:\/\/br.tradingview.com\/widgetembed\/","hreflang":"pt-br","priority":713,"flag":"br","language_name":"Brasil","is_site_locale":true},"cs":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/cs.c9395822fd0a.js","geoip_code":"cs","name_on_widgets":"\u010cesky","language":"cs","show_on_widgets":true,"priority":718,"flag":"cz","language_name":"Czech"},"he_IL":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/he_IL.4c4f669afbb5.js","geoip_code":"il","name_on_widgets":"\u200f\u05e2\u05d1\u05e8\u05d9\u05ea\u200f","language":"he_IL","show_on_widgets":true,"priority":723,"flag":"il","language_name":"Hebrew (Israel)"},"ja":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/ja.8a4d79219d6e.js","geoip_code":"jp","language":"ja","name_on_widgets":"\u65e5\u672c\u8a9e","title":"\u65e5\u672c","show_on_widgets":true,"base_url":"https:\/\/jp.tradingview.com","current_url":"https:\/\/jp.tradingview.com\/widgetembed\/","hreflang":"ja-jp","priority":600,"flag":"jp","language_name":"\u65e5\u672c","is_site_locale":true},"es":{"localization_url":"https:\/\/s.tradingview.com\/static\/localization\/translations\/es.d1702fd09b7e.js","geoip_code":"es","name_on_widgets":"Espa\u00f1ol","language":"es","title":"Espa\u00f1a","countries_with_this_language":["mx","ar","ve","cl","co","pe","uy","py","cr","gt","cu","bo","pa","pr"],"show_on_widgets":true,"base_url":"https:\/\/es.tradingview.com","current_url":"https:\/\/es.tradingview.com\/widgetembed\/","hreflang":"es-es","priority":750,"flag":"es","language_name":"Espa\u00f1a","is_site_locale":true}};
+		var _locale = urlParams.locale ? urlParams.locale.replace(/[^a-zA-Z\-\_]/g, '') : 'en';
+
+		var _allLocales = _widgetLocales;
+		for (var lcl in _siteLocales) {
+			_allLocales[lcl] = _siteLocales[lcl];
+		}
+
+		if (_allLocales[_locale]) {
+			window.locale = _siteLocales[_locale] ? _locale : 'en'; // backward compatibility
+			window.language = _allLocales[window.locale]['language'];
+		} else {
+			window.locale = 'en';
+			window.language = 'en';
+		}
+
+		var localization_url =
+			(_allLocales[window.locale] || {}).localization_url ||
+			null
+		;
+
+		if (localization_url) {
+			document.write('\x3Cscript crossorigin="anonymous" type="text/javascript" src="'+localization_url+'" charset="utf-8">\x3C/script>');
+		}
+	})();
+</script>
+<script crossorigin="anonymous"  type="text/javascript" src="https://s.tradingview.com/static/bundles/i18n.7e7b76488627998ef1d9.97e18b7626d9.js" ></script>
+
+<script type="text/javascript">
+window.TradingView = window.TradingView || {};
+window.initData = window.initData || {};
+var is_authenticated = false;
+var user = {'username': 'Guest', 'following': '0', 'followers': '0', 'ignore_list': {}};
+
+var USE_SECURE_PORT = 'https:' == document.location.protocol;
+var WEBSOCKET_HOST;
+var WEBSOCKET_PORT;
+var PUSHSTREAM_URL = 'wss://pushstream.tradingview.com';
+var CHARTEVENTS_URL = 'https://chartevents.tradingview.com/chartevents/';
+var ESD_ESTIMATES_URL = 'https://esd-feed.tradingview.com/estimates';
+var EARNINGS_CALENDAR_URL = 'https://ecalendar.tradingview.com/earnings-calendar/';
+var NEWS_SERVICE_URL = 'https://news-headlines.tradingview.com';
+var DEFAULT_SYMBOL = 'NASDAQ:AAPL';
+var HOTLISTS_URL = 'https://hotlist.tradingview.com/';
+var DEFAULT_EXCHANGES = {"fr":"EURONEXT","en":"US","ca":"TSX","au":"ASX","br":"BMFBOVESPA","in":"BSE","ja":"TSE","es":"BME","ru":"MOEX","tr":"BIST","uk":"LSE"};
+var EXCHANGES_NOT_FOR_WIDGET = ["ASX","BCBA","BME","BMFBOVESPA","BMV","EURONEXT","HKEX","MOEX","NAG","NZX","SIX","TSE","TSX","TSXV"];
+var PINE_URL = 'https://pine-facade.tradingview.com/pine-facade';
+
+var DATA_ISSUES_HOST = 'https://data-issues.tradingview.com';
+var TELEMETRY_HOSTS = {"alerts":{"all":"https:\/\/telemetry-new.tradingview.com\/alerts"},"charts":{"pro":"https:\/\/telemetry-new.tradingview.com\/pro","widget":"https:\/\/telemetry-new.tradingview.com\/widget","free":"https:\/\/telemetry-new.tradingview.com\/free"}};
+var TELEMETRY_PING_HOST = 'https://prodata.tradingview.com/ping';
+
+
+
+
+
+
+	
+		WEBSOCKET_HOST = 'widgetdata.tradingview.com';
+	
+
+	WEBSOCKET_PORT = USE_SECURE_PORT ? '' : '';
+
+
+
+if (urlParams.ws_host) {
+	WEBSOCKET_HOST = urlParams.ws_host;
+}
+
+initData.defSymbol =  DEFAULT_SYMBOL ;
+initData.def_extended_hours = undefined;
+initData.hide_ideas = !!urlParams.hideideas;
+
+
+
+initData.def_interval = '1';
+
+
+
+
+
+
+
+
+
+
+
+
+initData.def_hide_symbol_edit = true;
+
+
+
+
+
+var featureToggleState = {"black_friday":0.0,"restart_all_inactive_alerts":1.0,"loading_charts_counters":1.0,"need_credit_card_for_trial":1.0,"broker_FXCM":1.0,"idc_delay_agreement_disabled":0.0,"idc_agreement_disabled":0.0,"chrome_canvas_fix":1.0,"screener_alerts":1.0,"black_friday_popup":0.0,"broker_OANDA":0.0,"symbol_search_server_highlight":1.0,"kr_locale_enabled":1.0,"several-charts-ad":1.0,"app_store_button":0.0,"alerts-maintenance":0.0,"it_locale_enabled":1.0,"hotlist_widget_enabled":1.0,"paper-maintenance":0.0,"true_sms_alerts":1.0,"safe_format_extensions":1.0,"show_extension_popup":0.0,"unsubscribe_inactive_users":1.0,"detect-squatters":1.0,"cj_report_enabled":1.0,"br_locale_enabled":1.0,"chart_connections":0.0,"in_locale_enabled":1.0,"screener-alerts-maintenance":0.0,"idc_agreement_redirect":1.0,"address-autocomplete-google-key":1.0,"tr_locale_enabled":1.0,"uk_locale_enabled":1.0};
+
+
+
+
+
+
+
+	initData.def_enable_publishing = false;
+
+
+
+
+initData.def_save_image = true;
+
+</script>
+<script crossorigin="anonymous"  type="text/javascript" src="https://s.tradingview.com/static/bundles/embed_widget.2c735c584f433d17b0b1.12aa55aebe62.js" ></script>
+<link type="text/css" href="https://s.tradingview.com/static/bundles/embed_widget.a35ca354d0104100754096cbdbf28ee0.a35ca354d010.css" rel="stylesheet"/>
+
 	
 </body>
 </html>
